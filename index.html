@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aasim Terminal</title>
+<style>
+
+body {
+    background-color: #0a0a0a;
+    color: #00ff66;
+    font-family: "Courier New", monospace;
+    padding: 40px;
+}
+
+
+#terminal {
+    white-space: pre-line;
+}
+
+
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff66;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<div id="terminal">
+~/aasim/portfolio/terminal
+
+Type "help" to begin.
+
+Hi!, I am Mohammed Aasim Ansari, an AI Developer with a passion for building scalable AI systems. 
+I have experience in developing and deploying machine learning models, as well as working on various AI projects.
+Feel free to explore my terminal to learn more about me and my work.
+I can solve complex engineering challenges and building scalable applications.
+
+
+For available commands, type "help" or "ls".
+</div>
+
+<div>
+~$ <input type="text" id="commandInput" autofocus />
+</div>
+
+<script>
+const terminal = document.getElementById("terminal");
+const input = document.getElementById("commandInput");
+
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        const command = input.value.trim();
+        terminal.innerHTML += "\n~$ " + command;
+        handleCommand(command);
+        input.value = "";
+    }
+});
+
+function handleCommand(command) {
+    switch(command) {
+        case "help":
+            terminal.innerHTML += "\n\n========== Available Commands ==========\n" +
+                "welcome     - Display welcome message\n" +
+                "edu         - Show education information\n" +
+                "email       - Open email client\n" +
+                "projects    - Show my projects\n" +
+                "skills      - Show my technical skills\n" +
+                "socials     - Show social media links\n" +
+                "cv          - Download my CV\n" +
+                "resume      - Download my resume\n" +
+                "themes      - Show available themes\n" +
+                "clear       - Clear the terminal\n" +
+                "exit        - Close the terminal\n" +
+                "=========================================";
+            break;
+
+        case "welcome":
+            terminal.innerHTML += "\n\nWelcome to Aasim's Terminal Portfolio!\n" +
+                "Hi, I'm Mohammed Aasim Ansari, an AI Developer.\n" +
+                "Passionate about building scalable AI systems.\n" +
+                "Type 'help' for available commands.";
+            break;
+
+        case "edu":
+            terminal.innerHTML += "\n\n========== Education ==========\n" +
+                "Bachelor of Science - [Your University]\n" +
+                "Major: [Your Major]\n" +
+                "Relevant Coursework: Machine Learning, Deep Learning, AI\n" +
+                "================================";
+            break;
+
+        case "email":
+            terminal.innerHTML += "\nOpening email client...";
+            window.open("mailto:your-email@example.com", "_blank");
+            break;
+
+        case "projects":
+            terminal.innerHTML += "\n\n========== Projects ==========\n" +
+                "1. AI Vein Recognition - ML-based biometric system\n" +
+                "2. Customer Churn ML - Prediction model for customer retention\n" +
+                "3. Flutter School App - Mobile educational application\n" +
+                "===============================";
+            break;
+
+        case "skills":
+            terminal.innerHTML += "\n\n========== Technical Skills ==========\n" +
+                "Languages: Python, JavaScript, Java, C++\n" +
+                "AI/ML: TensorFlow, PyTorch, Scikit-learn\n" +
+                "Web: HTML, CSS, JavaScript, React\n" +
+                "Other: Git, Docker, SQL, REST APIs\n" +
+                "======================================";
+            break;
+
+        case "socials":
+            terminal.innerHTML += "\n\n========== Social Media ==========\n" +
+                "GitHub: https://github.com/yourname\n" +
+                "LinkedIn: https://linkedin.com/in/yourname\n" +
+                "Twitter: https://twitter.com/yourhandle\n" +
+                "Email: your-email@example.com\n" +
+                "==================================";
+            break;
+
+        case "cv":
+            terminal.innerHTML += "\nDownloading CV...";
+            window.open("https://your-cv-link.com", "_blank");
+            break;
+
+        case "resume":
+            terminal.innerHTML += "\nDownloading resume...";
+            window.open("https://your-resume-link.com", "_blank");
+            break;
+
+        case "themes":
+            terminal.innerHTML += "\n\n========== Available Themes ==========\n" +
+                "1. Green Terminal (current)\n" +
+                "2. Blue Terminal\n" +
+                "3. Purple Terminal\n" +
+                "4. White Terminal\n" +
+                "Type 'theme <number>' to change\n" +
+                "======================================";
+            break;
+
+        case "clear":
+            terminal.innerHTML = "~/aasim/portfolio/terminal\n\nType 'help' to begin.";
+            break;
+
+        case "exit":
+            terminal.innerHTML += "\nExiting terminal... Goodbye!";
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+            break;
+
+        default:
+            terminal.innerHTML += "\nCommand not found. Type 'help' for available commands.";
+    }
+}
+</script>
+
+</body>
+</html>
